@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        
+
+    <style>
+        .background{
+            background: url('images/arting_background.png') center center no-repeat fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .empty{
+            height: 800px;
+            width: 100%;
+        }
+       
+    
+       
+        
+    </style>
+</head>
+
+<body class="background">
+
+
+    <div class="empty"></div>
+
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-0">
+            </div>
+            <div  class="col-lg-6 col-md-8 col-sm-12 reveal">
+                <img id="imagem1" onmouseover="mousein1()" onmouseout="mouseout1()" src="images/arting_ideas.jpg" style="width: 100%;">
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="height: 300px;"></div>
+
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-lg-6 col-md-4 col-sm-0">
+            </div> 
+            <div class="col-lg-4 col-md-6 col-sm-12 reveal">
+                <img id="imagem2" src="images/arting_web.jpg" onmouseover="mousein2()" onmouseout="mouseout2()" style="width: 100%;"  >
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="height: 300px;"></div>
+
+    <div class="col-xs-12">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-0">
+                </div> 
+                <div class="col-lg-5 col-md-8 col-sm-12 reveal">
+                    <img id="imagem3" src="images/arting_branding.jpg" onmouseover="mousein3()" onmouseout="mouseout3()" style="width: 100%;" >
+                </div>
+            </div>
+        </div>
+                        
+    <div class="container" style="height: 300px;"></div>
+
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-0">
+                </div> 
+                <div class="col-lg-6 col-md-8 col-sm-12 reveal">
+                    <img id="imagem4" src="images/arting_logo.jpg" onmouseover="mousein4()" onmouseout="mouseout4()" style="width: 100%; " >
+                </div>
+            </div>
+        </div>                   
+
+    <div class="container" style="height: 300px;"></div>
+
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-0">
+                </div> 
+                <div class="col-lg-5 col-md-6 col-sm-12 reveal">
+                    <img id="imagem5" src="images/arting_youtube.jpg" onmouseover="mousein5()" onmouseout="mouseout5()" style="width: 100%; " >
+                </div>
+            </div>
+        </div>  
+        
+    <div class="container" style="height: 600px;"></div>
+
+</body>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script type="text/javascript">
+        ScrollReveal({
+            reset: true,
+            delay: 70,
+            duration: 1000
+        });
+        ScrollReveal().reveal('.reveal', {scale: 0.5 }); 
+    </script>
+    <script type="text/javascript">
+
+        function mousein1(){
+            $('#imagem1').attr('src', 'images/idea_over.jpg');
+            fadeIn('imagem1', 0.6);
+
+        }
+        function mouseout1(){
+             $('#imagem1').attr('src', 'images/arting_ideas.jpg');
+        }
+
+        function mousein2(){
+            $('#imagem2').attr('src', 'images/web_over.jpg');
+            fadeIn('imagem2', 0.6);
+
+        }
+        function mouseout2(){
+             $('#imagem2').attr('src', 'images/arting_web.jpg');
+        }
+
+        function mousein3(){
+            $('#imagem3').attr('src', 'images/branding_over.jpg');
+            fadeIn('imagem3', 0.6);
+
+        }
+        function mouseout3(){
+             $('#imagem3').attr('src', 'images/arting_branding.jpg');
+        }
+
+        function mousein4(){
+            $('#imagem4').attr('src', 'images/logo_over.jpg');
+            fadeIn('imagem4', 0.6);
+
+        }
+        function mouseout4(){
+             $('#imagem4').attr('src', 'images/arting_logo.jpg');
+        }
+
+        function mousein5(){
+            $('#imagem5').attr('src', 'images/youtube_over.jpg');
+            fadeIn('imagem5', 0.6);
+
+        }
+        function mouseout5(){
+             $('#imagem5').attr('src', 'images/arting_ideas.jpg');
+        }
+
+
+
+        function fadeOut(id, time) {
+            fade(id, time, 100, 0);
+        }
+
+        function fadeIn(id, time) {
+            fade(id, time, 0, 100);
+        }
+
+        function fade(id, time, ini, fin) {
+            var target = document.getElementById(id);
+            var alpha = ini;
+            var inc;
+            if (fin >= ini) { 
+                inc = 2; 
+            } else {
+                inc = -2;
+            }
+            timer = (time * 1000) / 50;
+            var i = setInterval(
+                function() {
+                    if ((inc > 0 && alpha >= fin) || (inc < 0 && alpha <= fin)) {
+                        clearInterval(i);
+                    }
+                    setAlpha(target, alpha);
+                    alpha += inc;
+                }, timer);
+        }
+
+        function setAlpha(target, alpha) {
+            target.style.filter = "alpha(opacity="+ alpha +")";
+            target.style.opacity = alpha/100;
+        }
+        
+
+    </script>
+   
+
+
+</html>
